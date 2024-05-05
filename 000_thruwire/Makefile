@@ -13,9 +13,9 @@ UNAME_S := $(shell uname -s)
 OBJ_DIR := $(ROOT_DIR)/obj_dir
 
 INCFLAGS += -I$(OBJ_DIR)
-LDFLAGS += -Wl,-rpath,$(OBJ_DIR) -L$(OBJ_DIR) -lVthruwire -L$(OBJ_DIR) -lverilated
+LDFLAGS += -Wl,-rpath,$(OBJ_DIR) -L$(OBJ_DIR) -lV$(MODULE) -L$(OBJ_DIR) -lverilated
 ifeq ($(UNAME_S), Darwin)
-	LDFLAGS += -undefined dynamic_lookup
+  LDFLAGS += -undefined dynamic_lookup
 endif
 
 all: cpp
