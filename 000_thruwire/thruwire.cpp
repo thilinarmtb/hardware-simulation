@@ -5,6 +5,8 @@
 
 #include "Vthruwire.h"
 
+// Example found in the tutorial: https://zipcpu.com/tutorial/lsn-01-wires.pdf
+
 int main(int argc, char *argv[]) {
   VerilatedContext *const context = new VerilatedContext{};
   context->commandArgs(argc, argv);
