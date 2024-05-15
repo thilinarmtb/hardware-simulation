@@ -4,7 +4,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wpedantic -std=c++14
 VC ?= verilator
 VFLAGS ?= -Wall
-INCFLAGS ?= -I/opt/homebrew/Cellar/verilator/5.024/share/verilator/include
+INCFLAGS ?= -I${HOMEBREW_CELLAR}/verilator/5.024/share/verilator/include
 LDFLAGS ?=
 MODULE ?= thruwire
 
