@@ -20,6 +20,7 @@ int main(int argc, char *argv[]) {
            bp->o_parity);
   }
 
+  delete bp;
   delete context;
 
   return 0;

@@ -20,6 +20,7 @@ int main(int argc, char *argv[]) {
            m2to1->i_a, m2to1->i_b, m2to1->i_sel, m2to1->o_out);
   }
 
+  delete m2to1;
   delete context;
 
   return 0;

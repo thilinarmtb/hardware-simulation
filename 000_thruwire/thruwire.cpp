@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
     printf("t = %02d, sw = %02d led = %02d\n", t, tw->i_sw, tw->o_led);
   }
 
+  delete tw;
   delete context;
 
   return 0;
