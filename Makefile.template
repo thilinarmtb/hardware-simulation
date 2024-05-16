@@ -1,21 +1,23 @@
-.PHONY: all cpp verilog clean format
-
 CXX ?= g++
 CXXFLAGS ?= -Wall -Wpedantic -std=c++14
 VC ?= verilator
 VFLAGS ?= -Wall
 LDFLAGS ?=
-
+INCFLAGS ?=
 V_ROOT ?= $(shell bash -c '$(VC) -V | grep VERILATOR_ROOT | head -n 1 | sed -e "s/^.*=\s*//"')
+
+#####                       Don't touch what follows                       #####
 SRC_ROOT := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 UNAME_S := $(shell uname -s)
 OBJ_DIR := $(SRC_ROOT)/obj_dir
 
-INCFLAGS = -I$(V_ROOT)/include -I$(OBJ_DIR)
-LDFLAGS += -Wl,-rpath,$(OBJ_DIR) -L$(OBJ_DIR) -lV$(MODULE) -L$(OBJ_DIR) -lverilated
+INCFLAGS += -I$(V_ROOT)/include -I$(OBJ_DIR)
+LDFLAGS += -Wl,-rpath,$(OBJ_DIR) -L$(OBJ_DIR) -lV$(MODULE) -lverilated
 ifeq ($(UNAME_S), Darwin)
   LDFLAGS += -undefined dynamic_lookup
 endif
+
+.PHONY: all cpp verilog clean format
 
 all: cpp
 
